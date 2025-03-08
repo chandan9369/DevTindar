@@ -1,0 +1,18 @@
+-  Install nodemon and update scripts inside package.json
+-  what are dependecies
+-  what is the use of "-g" while npm install
+-  difference between caret and tilde (^ vs ~)
+-  order of routes matter a lot
+-  write logic to handle GET, POST, PATCH, DELETE api calls and test them on postman
+-  explore routing and use of ?, +, (), "\*" in the routes
+-  use of regex in routes /a/, "/.\*hi$/"
+-  reading the query params in the routes
+-  reading the dynamic routes
+
+-  multiple route handlers
+-  next()
+-  next function and erros along with res.send()
+-  app.use('/route',rH,[rH2,rH3],rH4,rH5) : enclosing them in array will not affect anything & it will work similar to (app.use('/route',rH,rH2,rH3,rH4,rH5))
+-  What is middleware? why do we need it?
+-  How express JS basically handles requests behind the scenes
+-  difference between app.use() and app.all()
