@@ -16,3 +16,17 @@
 -  What is middleware? why do we need it?
 -  How express JS basically handles requests behind the scenes
 -  difference between app.use() and app.all()
+
+-  install mongoose library
+-  connect your application to the database "<connection-url>/devTinder"
+-  call connectDB function and connect to db before starting listening
+-  create user schema and model
+-  create POST/signup API to add data to DB
+-  Push some documents(object) using API calls from postman
+-  Error handling using try, catch to all promises (usually all mongoose function return promises)
+
+-  JSON vs JS object
+-  express.json() middleware is used to parse json data to route
+-  difference between PATCH vs PUT
+
+-  Data sanitization & schema validations

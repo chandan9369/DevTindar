@@ -7,13 +7,24 @@ const { adminAuth, userAuth } = require("./auth");
 // GET /route => middleware chain => route handler
 
 // Handling Auth Middleware for all GET, POST,...etc.
-app.use("/admin", adminAuth);
+app.get("/admin", adminAuth);
 
 app.get("/user", userAuth, (req, res) => {
-   // this will only call if admin is authorized
-   res.send("Sending data...");
+   try {
+      // this will only call if admin is authorized
+      throw new Error("jiksadi");
+      res.send("Sending data...");
+   } catch (err) {
+      res.status(500).send("Contact team !!!");
+   }
 });
 
+// handling error
+app.use("/", (err, req, res, next) => {
+   if (err) {
+      res.status(500).send("Something went wrong !!!");
+   }
+});
 // app.use(
 //    "/user",
 //    (req, res, next) => {
@@ -27,6 +38,7 @@ app.get("/user", userAuth, (req, res) => {
 //       //   res.send("2nd Response !!"); // this will throw error if above handler already send response
 //    }
 // );
+
 app.listen(3000, () => {
    console.log("http://localhost:3000");
 });
