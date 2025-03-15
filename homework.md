@@ -27,6 +27,17 @@
 
 -  JSON vs JS object
 -  express.json() middleware is used to parse json data to route
--  difference between PATCH vs PUT
+-  difference between `PATCH` vs `PUT`
 
 -  Data sanitization & schema validations
+-  NEVER TRUST `req.body`
+-  Validate data in Sign Up API
+-  Install bcrypt package
+-  create password hash using bcrypt.hash(password,saltRound)
+-  save the use with encrypted password
+
+## Authentication
+
+-  `res.cookie` & `req.cookies`
+-  `cookie-parser`
+-  `jsonwebtoken`
