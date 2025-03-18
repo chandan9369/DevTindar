@@ -41,3 +41,5 @@
 -  `res.cookie` & `req.cookies`
 -  `cookie-parser`
 -  `jsonwebtoken`
+
+-  Read documentation for express.Router()
