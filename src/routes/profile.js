@@ -2,10 +2,10 @@ const express = require("express");
 const profileRouter = express.Router();
 const { userAuth } = require("../middleware/auth");
 const bcrypt = require("bcrypt");
-const { validateSignUpData, validateEditProfileData } = require("../utils/validation");
+const { validateEditProfileData } = require("../utils/validation");
 const validator = require("validator");
 
-profileRouter.get("/profile", userAuth, async (req, res) => {
+profileRouter.get("/profile/view", userAuth, async (req, res) => {
    try {
       // first userAuth middleware run -> this function
       res.send(req.user);

@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema(
       firstName: {
          type: String,
          required: true,
+         index: true,
          minLength: 4,
          maxLength: 59,
       },
@@ -15,11 +16,11 @@ const userSchema = new mongoose.Schema(
          type: String,
       },
       emailId: {
+         unique: true, // will make emaild ID index for DB no need to do index:true
          type: String,
          trim: true,
          lowercase: true,
          required: true,
-         unique: true,
          validate(value) {
             if (!validator.isEmail(value)) {
                throw new Error("Invalid email address: " + value);
@@ -41,12 +42,16 @@ const userSchema = new mongoose.Schema(
       },
       gender: {
          type: String,
-         validate(value) {
-            // by default this validate will only work for new object which will be added not for existing object
-            if (!["male", "female", "others"].includes(value)) {
-               throw new Error("Gender data is not valid...");
-            }
+         enum: {
+            values: ["male", "female", "others"],
+            message: `{VALUE} is not a valid gender type...`,
          },
+         // validate(value) {
+         //    // by default this validate will only work for new object which will be added not for existing object
+         //    if (!["male", "female", "others"].includes(value)) {
+         //       throw new Error("Gender data is not valid...");
+         //    }
+         // },
       },
       photoUrl: {
          type: String,
@@ -69,6 +74,9 @@ const userSchema = new mongoose.Schema(
       timestamps: true,
    }
 );
+
+// Compound DB index
+userSchema.index({ firstName: 1, lastName: 1 });
 
 userSchema.methods.validatePassword = async function (passwordInputByUser) {
    const passwordHash = this.password;

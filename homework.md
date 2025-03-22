@@ -43,3 +43,10 @@
 -  `jsonwebtoken`
 
 -  Read documentation for express.Router()
+
+-  Read about Compound index in db
+-  read more about indexes in MongoDB
+-  why do we need index in DB?
+-  what is the advantages and disadvantages of creating?
+-  read more about comparision queries
+-  linking two schema using "ref"
